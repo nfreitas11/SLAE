@@ -73,8 +73,7 @@ _start:
 
 	push esi
 	push ebx
-	mov ecx, esp ;argv = [ *filename, 0 ]
-
-	mov edx, esi ;envp = NULL
+	mov ecx, esp	; argv = [ *filename, 0 ]
+	mov edx, esi	; envp = NULL
 
 	int 0x80 ; syscall
