@@ -2,12 +2,16 @@ import sys
 
 def portconversion(port):
 	port = hex(port)[2:]
-	if len(port) <= 2:
+	sizep = len(port)
+	if sizep == 1 or sizep == 3:
+		port = "0" + port #Padding 0
+
+	if len(port) == 2:
 	        port = '\\x'+str(port[0:2])
 	else:
-        	port = '\\x'+str(port[0:2])+'\\x'+str(port[2:4])
+        	port = '\\x'+str(port[0:2]) + '\\x'+str(port[2:4])
 
-	if "\\x0" in port:
+	if "\\x00" in port:
 		print "[!] With this port the shellcode would have a null byte!"
 		print "\tPort bytes:", port
 		sys.exit()
