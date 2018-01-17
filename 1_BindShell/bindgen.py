@@ -6,7 +6,7 @@ def portconversion(port):
 	if sizep == 1 or sizep == 3:
 		port = "0" + port #Padding 0
 
-	if len(port) == 2:
+	if sizep == 2:
 	        port = '\\x'+str(port[0:2])
 	else:
         	port = '\\x'+str(port[0:2]) + '\\x'+str(port[2:4])
