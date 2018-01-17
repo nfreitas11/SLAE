@@ -7,10 +7,9 @@ def portconversion(port):
 	else:
         	return '\\x'+str(port[0:2])+'\\x'+str(port[2:4])
 
-
 def main():
-	total = len(sys.argv)
-	if total != 2:
+	argnum = len(sys.argv)
+	if argnum != 2:
 		print "Usage: ./"+sys.argv[0]+" <PORT>"
 	else:
 		port = int(sys.argv[1])
