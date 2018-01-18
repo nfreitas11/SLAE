@@ -12,7 +12,7 @@ def portconversion(port):
         	port = '\\x'+str(port[0:2]) + '\\x'+str(port[2:4])
 
 	if "\\x00" in port:
-		print "[!] With this port the shellcode would have a null byte!"
+		print "[!] With this port the shellcode would have null byte(s)!"
 		print "\tPort bytes:", port
 		sys.exit()
 
@@ -29,7 +29,7 @@ def ipconversion(ip):
 		ret = ret + "\\x" + i
 
         if "\\x00" in ret:
-                print "[!] With this IP the shellcode would have a null byte!"
+                print "[!] With this IP the shellcode would have null byte(s)!"
                 print "\tIP bytes:", ret
                 sys.exit()
 
