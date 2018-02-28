@@ -9,6 +9,6 @@ unsigned char shellcode[] = \
 
 void main()
 {
-    int (*ret)() = (int(*)())egghunter;
+    int (*ret)() = (int(*)())shellcode;
     ret();
 }
